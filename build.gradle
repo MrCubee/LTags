@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'fr.mrcubee.minecraft.plugin'
+version '1.0'
+
+repositories {
+    maven {
+        url 'https://nexus.mrcubee.net/repository/minecraft/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT'
+}
+
+processResources {
+    filesMatching('**') {
+        expand(
+                name: project.name,
+                version: project.version,
+                url: 'https://github.com/MrCubee/LTags',
+                description: project.description
+        )
+    }
+}
